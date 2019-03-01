@@ -30,6 +30,3 @@ services:
       - REDIRECT_URI=http://localhost:5000/callback
       - BALENA=1
       - APP_PORT=5001
-networks:
-  default:
-  spotifarm:
