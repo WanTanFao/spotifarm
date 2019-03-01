@@ -1,0 +1,35 @@
+version: '2.1'
+services:
+  spotifarm-player:
+    build: ./spotifarm-player
+    restart: always
+    #devices:
+    #  - /dev/snd
+    labels:
+        io.balena.features.dbus: '1'
+        io.balena.features.kernel-modules: '1'
+        io.balena.features.firmware: '1'
+        io.balena.features.supervisor-api: '1'
+        io.balena.features.balena-api: '1'
+    environment:
+      - SPOTIFY_USERNAME=4hdeg6xu4rj0281v0ks52tw4t
+      - SPOTIFY_PASSWORD=t6z984on1l
+      - SPOTIFY_NAME=spotifarm1
+  spotifarm-head:
+    build: ./spotifarm-head
+    restart: always
+    labels:
+        io.balena.features.dbus: '1'
+        io.balena.features.kernel-modules: '1'
+        io.balena.features.firmware: '1'
+        io.balena.features.supervisor-api: '1'
+        io.balena.features.balena-api: '1'
+    environment:
+      - CLIENT_ID=07492d682dee469995f88877190180ba
+      - CLIENT_SECRET=b356b8be46b74718a147e19ea965a952
+      - REDIRECT_URI=http://localhost:5000/callback
+      - BALENA=1
+      - APP_PORT=5001
+networks:
+  default:
+  spotifarm:
