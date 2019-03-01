@@ -1,8 +1,8 @@
 .dockerignore
 .git
 */node_modules
-Dockerfile
-Dockerfile.*
+#Dockerfile
+#Dockerfile.*
 Makefile
 .editorconfig
 coffeelint.json
